@@ -17,4 +17,7 @@
 ### Step5: vim .vimrc
 ### Step6: in .vimrc type ':wq' and all will set up
 
+### Now you can add any vim plugin name into plugin.vim
+### and enter vim type ":PluginInstall" to download it !
+
 ### Note: You will get error when first use vim to open .vimrc, but when first write .vimrc, all well fine.
