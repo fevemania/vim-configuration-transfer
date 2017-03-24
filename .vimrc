@@ -57,13 +57,15 @@ nmap <Leader><space> :nohlsearch<cr>
 
 "call NERDTreeToggle
 nmap <D-1> :NERDTreeToggle<cr>
-
+nmap <c-R> :CtrlPBufTag<cr>
+nmap <D-e> :CtrlPMRUFiles<cr>
 "----------Auto-Commands---------"
 
 "Automactically source the Vimrc file on save.
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
+	autocmd BufWritePost .vimrc :! python copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
