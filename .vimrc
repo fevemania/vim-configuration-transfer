@@ -66,8 +66,8 @@ nmap <D-e> :CtrlPMRUFiles<cr>
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc :silent !python ~/.vim/auto_download.py 
-	autocmd BufWritePost .vimrc :silent !python copy.py
+	autocmd BufWritePost .vimrc :silent !python3 ~/.vim/auto_download.py 
+	autocmd BufWritePost .vimrc :silent !python3 copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
