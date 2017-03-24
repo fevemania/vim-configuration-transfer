@@ -1,5 +1,6 @@
 set nocompatible              " We want the latest Vim settings/options.
 
+
 so ~/.vim/plugins.vim
 
 syntax enable
@@ -65,7 +66,8 @@ nmap <D-e> :CtrlPMRUFiles<cr>
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc :! python copy.py
+	autocmd BufWritePost .vimrc :silent !python ~/.vim/auto_download.py 
+	autocmd BufWritePost .vimrc :silent !python copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
