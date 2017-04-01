@@ -2,22 +2,17 @@
 
 ### This is the vim configuration references from laracast Vim Mastery Tutorial
 
-### This folder should be named as ".vim" and put in the Home directory.
-### And then copy .vimrc file to home directory as well.
-### Note: .vimrc should place both in Home directory and .vim folder
+### All You have to do is 
 
-### Note: The key mapping <D-x> correspond to Mac Commend Key, and only MacVim can use it. Otherwise, You have to change the keymapping yourself
+### Step1. python3 script.py (detail alrealy commit in script.py)
+### Step2. open vim, and type ":PluginInstall" to download your own plugins (which edit in plugins.vim)
 
-### You should first install python3
+### According to script.py:
+#### 	1. This folder will be autonomously named as ".vim" and put in the Home directory.
+#### 	2. And it also autonomously copy .vimrc file to home directory as well.
 
-### Step1: pip3 install GitPython
-### Step2: change directory to Home directory
-### Step3: mv vim_config .vim
-### Step4: cp .vim/.vimrc .
-### Step5: vim .vimrc
-### Step6: in .vimrc type ':wq' and all will set up
 
-### Now you can add any vim plugin name into plugin.vim
-### and enter vim type ":PluginInstall" to download it !
+#### Note: .vimrc should show both in Home directory and .vim folder
 
-### Note: You will get error when first use vim to open .vimrc, but when first write .vimrc, all well fine.
+#### Note: The key mapping <D-x> correspond to Mac Commend Key, and only MacVim can use it. Otherwise, You have to change the keymapping yourself
+
