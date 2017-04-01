@@ -12,13 +12,13 @@ def check_module_exists(module_name):
 # check_file_exist, if exist throw except_action, else do regular action
 def check_file_exist(filepath, action):
     if os.path.isfile(filepath):
-        raise Exception(filepath, 'already exist, please check it')
+        print(filepath, 'already exist, please check it')
     else:
         action()
 
 def check_dir_exist(dirpath, action):
     if os.path.isdir(dirpath):
-        raise Exception(dirpath, 'already exist, please check it')
+        print(dirpath, 'already exist, please check it')
     else:
         action()
 
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     check_file_exist(copy_py_file, copyfile('copy.py', copy_py_file))
     
     # Step5. download for Vundle
-    subprocess.run(['python3', 'auto_download']) 
+    subprocess.run(['python3', 'auto_download.py']) 
   
    
 
