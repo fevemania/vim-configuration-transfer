@@ -15,5 +15,6 @@ def auto_download(dir_name):
     	print(dir_name, " is alreadly in ", vundle_path)
     else:
     	Repo.clone_from("git@github.com:VundleVim/Vundle.vim.git", dir_name,branch="master")
-#if __name__ == "__main__":
-#	auto_download('.vim/bundle/Vundle.vim')
+
+if __name__ == "__main__":
+	auto_download('.vim/bundle/Vundle.vim')

@@ -2,7 +2,6 @@ import os
 import sys
 import subprocess
 from shutil import copyfile
-import auto_download
 
 def check_module_exists(module_name):
     result = subprocess.run(['pip3','list'], stdout=subprocess.PIPE)
@@ -43,7 +42,7 @@ if __name__ == '__main__':
     check_file_exist(copy_py_file, copyfile('copy.py', copy_py_file))
     
     # Step5. download for Vundle
-    auto_download.auto_download()
+    subprocess.run(['python3', 'auto_download']) 
   
    
 
