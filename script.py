@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 from shutil import copyfile
-
+ 
 def check_module_exists(module_name):
     result = subprocess.run(['pip3','list'], stdout=subprocess.PIPE)
     #print(type(result.stdout)) # the return value is byte object 
