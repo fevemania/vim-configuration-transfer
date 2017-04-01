@@ -9,7 +9,7 @@ def auto_download(filename):
     if not os.path.exists(bundle_dir):
         os.makedirs(bundle_dir)
 
-    vundle_path = Path(os.path.join(HOME, filename))
+    vundle_path = Path(os.path.join(bundle_dir, filename))
 
     # Check if Vundle.vim exist to avoid repeatly download 
     if vundle_path.is_dir():
