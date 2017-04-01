@@ -1,3 +1,4 @@
+" This must be first, because it changes other options as a side effect.
 set nocompatible              " We want the latest Vim settings/options.
 
 
@@ -14,6 +15,9 @@ set number
 set tabstop=4
 set shiftwidth=4
 
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
 
 
 "-----------Visauls-------------"
@@ -56,23 +60,40 @@ nmap <Leader>ez :tabedit $MYZSHRC<cr>
 "Add simple highlight removal
 nmap <Leader><space> :nohlsearch<cr>
 
-"call NERDTreeToggle
-nmap <D-1> :NERDTreeToggle<cr>
-nmap <c-R> :CtrlPBufTag<cr>
+"ctag find
+nmap <Leader>f :tag<space>
+
+"/
+"/ CtrlP
+"/
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+
+nmap <D-P> :CtrlP<cr>
+nmap <D-R> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
+
+
+"/
+"/ NERDTree
+"/
+let NERDTreeHijackNetrw = 0
+
+nmap <D-1> :NERDTreeToggle<cr>
+
+
+
 "----------Auto-Commands---------"
 
 "Automactically source the Vimrc file on save.
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc :silent !python3 ~/.vim/auto_download.py 
-	autocmd BufWritePost .vimrc :silent !python3 copy.py
+	"autocmd BufWritePost .vimrc :silent !python3 ~/.vim/auto_download.py 
+	"autocmd BufWritePost .vimrc :silent !python3 copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 
 if has("vms")
@@ -80,9 +101,6 @@ if has("vms")
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
 
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -98,3 +116,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Notes and Tips
+" " - Press 'zz' to instantly center the line where the cursor is located. 
