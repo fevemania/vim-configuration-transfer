@@ -12,12 +12,14 @@
 **The following file you can edit:**
 
 `(1) .vimrc for your own settings`
+
 `(2) .vim/plugins.vim for your favorite plugins`
 
 ---
 **All You have to do is**
 
 `Step1. python3 script.py (detail alrealy commit in script.py)`
+
 `Step2. open vim, and type ":PluginInstall" to download your own plugins (which edit in plugins.vim)`
 
 
