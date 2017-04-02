@@ -4,7 +4,7 @@
 **Main Functionality:**
 
 `1. Safely transfer your vim configuration from one computer to another one, With setting up Vundle manager.
-   (for detail, please look for scripy.py and .vimrc)`
+   (for detail, please look for script.py and .vimrc)`
 
 `2. Whenever you change the content of .vimrc under home directory, it will be Autonomously copied to .vim/.vimrc（For backup convenience)`
 
