@@ -9,7 +9,6 @@ def check_module_exists(module_name):
     if module_name not in result.stdout.decode('utf-8'):  # so we should decode it to extract proper string
         subprocess.run(['pip3', 'install', module_name])
 
-# check_file_exist, if exist throw except_action, else do copy file action
 def check_file_exist(filepath, action, filename, new_path):
     if os.path.isfile(filepath):
         print(filepath, 'already exist, please check it')
