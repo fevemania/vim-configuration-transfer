@@ -23,19 +23,28 @@ set showcmd		" display incomplete commands
 "-----------Visauls-------------"
 colorscheme atom-dark
 set t_CO=256						   "Use 256 colors. This is useful for Terminal Vim.
-set guifont=Fira_code:h15
-set linespace=0					   "Macvim-specific line-height.
+set guifont=Fira_code:h15			   "Set the default font family and size.
+set macligatures					   "We want pretty symbols, when avaible.
+set guioptions-=e					   "We don't want Gui tabs.
+set linespace=10					   "Macvim-specific line-height.
 
-set guioptions-=l
+set guioptions-=l					   "Disables Gui scrollbars.
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
 
+"We'll fake a custom left padding for each window.
+"make line_number_bar (sidebar) 's color equal to bg
+hi LineNr guibg=bg
+set foldcolumn=0
+hi foldcolumn guibg = bg
 
+"Get rid of ugly split borders.
+hi vertsplit guifg=bg guibg=bg
 
 "------------Search-------------"
-set hlsearch
-set incsearch		" do incremental searching
+set hlsearch		" Highlight all matched terms.
+set incsearch		" do incremental searching.
 
 
 "-----------Split Management----------"
@@ -49,7 +58,6 @@ nmap <C-L> <C-W><C-L>
 
 
 "------------Mappings------------"
-
 "Make it easy to edit the Vimrc file."
 "<cr> is for return enter"
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
@@ -63,14 +71,15 @@ nmap <Leader><space> :nohlsearch<cr>
 "ctag find
 nmap <Leader>f :tag<space>
 
+"--- --- --- --- -Plugins- --- --- --- ---"
 "/
 "/ CtrlP
 "/
 let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
-nmap <D-P> :CtrlP<cr>
-nmap <D-R> :CtrlPBufTag<cr>
+nmap <D-p> :CtrlP<cr>
+nmap <D-r> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
 
 
@@ -81,10 +90,26 @@ let NERDTreeHijackNetrw = 0
 
 nmap <D-1> :NERDTreeToggle<cr>
 
+"/
+"/ Greplace.vim 
+"/
+"/set grepprg=ack						"We want to use Ack for the search.
 
+"/let g:grep_cmd_opts = '--noheading'
+set grepprg=ag
+
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
+"/
+"/ Ack.vim -> make Ack.vim use like Ag.vim
+"/
+let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+cnoreabbrev ag Ack                                                                           
+cnoreabbrev aG Ack                                                                           
+cnoreabbrev Ag Ack                                                                           
+cnoreabbrev AG Ack  
 
 "----------Auto-Commands---------"
-
 "Automactically source the Vimrc file on save.
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
@@ -92,7 +117,6 @@ augroup autosourcing
 	autocmd BufWritePost .vimrc :silent !python3 copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
-
 
 
 if has("vms")
