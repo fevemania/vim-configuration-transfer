@@ -39,9 +39,9 @@ if __name__ == '__main__':
     vimrc_path = home_dir + '/.vimrc'
     check_file_exist(vimrc_path, copyfile, '.vimrc', vimrc_path) 
     
-    # Step4. cp copy.py ~ (for auto_copy .vimrc to .vim whenever change)
-    copy_py_file = home_dir + '/copy.py'
-    check_file_exist(copy_py_file, copyfile, 'copy.py', copy_py_file)
+    # Step4. cp copy2.py ~ (for auto_copy .vimrc to .vim whenever change)
+    copy_py_file = home_dir + '/copy_2.py'
+    check_file_exist(copy_py_file, copyfile, 'copy_2.py', copy_py_file)
     
     # Step5. download for Vundle
     subprocess.run(['python3', 'auto_download.py']) 

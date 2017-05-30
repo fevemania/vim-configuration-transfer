@@ -22,7 +22,7 @@ set showcmd		" display incomplete commands
 
 "-----------Visauls-------------"
 colorscheme atom-dark
-set t_CO=256						   "Use 256 colors. This is useful for Terminal Vim.
+set t_Co=256						   "Use 256 colors. This is useful for Terminal Vim.
 set guifont=Fira_code:h15			   "Set the default font family and size.
 set macligatures					   "We want pretty symbols, when avaible.
 set guioptions-=e					   "We don't want Gui tabs.
@@ -71,6 +71,12 @@ nmap <Leader><space> :nohlsearch<cr>
 "ctag find
 nmap <Leader>f :tag<space>
 
+"
+" fast comment/uncomment
+"
+nmap <D-/> :s:^:\/\/<cr>:nohlsearch<cr>
+nmap <D-\> :s:^\/\/<cr>:nohlsearch<cr>
+
 "--- --- --- --- -Plugins- --- --- --- ---"
 "/
 "/ CtrlP
@@ -114,7 +120,7 @@ cnoreabbrev AG Ack
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc :silent !python3 copy.py
+	autocmd BufWritePost .vimrc :silent !python3 copy_2.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
