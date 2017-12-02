@@ -6,7 +6,7 @@ so ~/.vim/plugins.vim
 
 syntax enable
 
-set background=dark
+set background=light
 
 set backspace=indent,eol,start         " allow backspacing over everything in insert mode
 let mapleader = ','					   " The default leader is \, but a comma is much better
@@ -113,7 +113,7 @@ cnoreabbrev AG Ack
 "autocmd! means clear out the group and start from scratch
 augroup autosourcing
 	autocmd!
-	autocmd BufWritePost .vimrc :silent !python3 copy_2.py
+	autocmd BufWritePost .vimrc :silent !python3 copy.py
 	autocmd BufWritePost .vimrc source %
 augroup END
 
@@ -144,5 +144,3 @@ endif
 
 set backupdir=~/vimtmp,.
 set directory=~/vimtmp,.
-
-autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
